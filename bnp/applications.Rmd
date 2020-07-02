@@ -1,6 +1,6 @@
 ### Jupyer Notebook Code Examples 
 
-If the steps in [the installation instructions](#installation) were successfully followed to completion then the example application code will be available through the links in the __jupyter__ directory tree view.  The following sections describe the files, their usage, and possible avenues to use the stub code as a template to investigate other time series datasets.  The __jupyter__ files also contain markdown section with detailed descriptions of the code and its use.   
+If the steps in [the installation instructions](#installation) were successfully followed to completion then the example application code will be available through the links in the __jupyter__ directory tree view.  The following sections describe the files, their usage, and possible avenues to use the stub code as a template to investigate other time series datasets.  The __jupyter__ files also contain markdown section with detailed descriptions of the code, its use, the interpretation of results, and opportunities for the application to other datasets. 
 
 #### Jupyter File data_explorer.ipynb
 In the files section of the running __jupyter notebook__ instance you will find the __/data__ directory which contains the two datasets 
@@ -8,11 +8,18 @@ required for the intended example applications. The file __jupyter__ file __data
 
 > As long as you data is in __.csv__ format, with an integer index beginning at zero, with all missing data interpolated, you can use  __data_explorer.ipynb__ as a template to import your own data sets.  Your data must be in a __.csv__ format with variable names in the column headers, all missing data backfilled and interpolated as required, and integer indexing starting at $0$. 
 
-#### Jupyter File data_prediction.ipynb
+#### Jupyter File data_prediction_one.ipynb
+The data used in this example application originates from a temperature sensor monitoring the temperature of a cooling water flow.  The data is indexed over the integers but the original timestamps showed each data point about 2 seconds apart.  Between samples 1500 and 2000 a significant deviation in the signal occurs.  This type of signal excursion is due to corroded contacts at some point in the signal path.
+The application demonstrates a significant ability of __trcrpm__ to identify signal abnormalities. 
 
-#### Jupyter File anomaly_detection.ipynb
+#### Jupyter File data_prediction_two.ipynb
+The data used in this example are taken from four temperature sensors situation on the fore and aft end shields of a CANDU reactor. The data is again indexed on the integers and was read from the field every two seconds.  The application demonstrates the predictive capabilities of the __trcrpm__ in a multivariate setting.
+
+#### Jupyter File data_prediction_three.ipynb
+The data used in this example are the same as is __data_prediction_one.ipynb__.  In this application the data is divided into four separate series, with the anomolous behaviour embedded in the third __d3__.  The graphics demonstrate that in the multivariate setting state attribution is heavily influenced by the the goings on in neighbouring series.   
+
+#### Jupyter File anomaly_detection_industrial.ipynb
 __anomaly_detection.ipynb__ investigates using the number of states in the inferred model to make conclusions about the incoming data.  
-
 #### Jupyter File multivariate_analysis.ipynb
 
 

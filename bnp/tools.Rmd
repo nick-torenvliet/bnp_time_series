@@ -78,11 +78,11 @@ You now should have __jupyter notebook__ running in your browser, on the __docke
 
 ### Next Time System Startup
 
-If you've successfully performed all the step in [Section](#installation) and want to come back to the system after shutting down the __docker container__ only the following steps need to be performed.
+If you've successfully performed all the step in [the installation instructions](#installation) and want to come back to the system after shutting down the __docker container__ only the following steps need to be performed.
 
-Start the __docker container__ with a shell, activate the __python__ vitural environment, and start __jupyter__:
+Start the __docker container__ with a shell and in the shell, activate the __python__ vitural environment, and start __jupyter__:
 ```
-docker run -p 8888:8888 -it bnp_time_series:00.00 
+docker run -p 8888:8888 -it bnp_time_series:00.00
 cd bnp_time_series
 source /venv/bin/activate
 jupyter notebook --no-browser --port 8888 --ip 0.0.0.0 --allow-root
