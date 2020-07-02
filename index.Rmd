@@ -1,0 +1,42 @@
+---
+title: "Topics in Bayesian Computing"
+author: |
+  | **Class of STAT 946, Spring 2020**
+  | **University of Waterloo**
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: 
+  bookdown::gitbook:
+    includes:
+      in_header: preamble.html
+bibliography: [applications.bib]
+link-citations: true
+---
+
+```{r setup, include = FALSE}
+user_link <- function(name, username) {
+  paste0("[", name, "](https://github.com/", username, ")")
+}
+```
+
+# Applications of Bayesian Nonparametric Methods
+## Problem Statement
+The advent of cheap data storage, ubiquitous networks, and fully connected sensing devices brings with it the possibility to control and monitor processes at scale.  Statistical learning methods have enjoyed great success in a number of use cases but a major barrier to their widespread adoption across the internet of things lies in the effort required to achieve useful implementations.  Take for example anomaly detection.  A typical industrial work place might have tens to hundreds of thousands of measured signals - each with its own set of characteristics behaviors and failure modes.  Ideally monitoring and control solutions in these contexts need to be generalized to the extent that they can be applied without specific training or dataset for each signal/device type and failure mode.
+
+In the following sections we will take a look at using BNP methods for anomaly detection and signal clustering in a set of industrial process variables.  The first example will demonstrate single variate anomaly detection, and the second will look at the multivariate case for clustering.
+
+## Tools and Setup
+```{r child="bnp/tools.Rmd", echo=T}
+```
+
+## Jupyter Application Files
+```{r child="bnp/applications.Rmd", echo=T}
+```
+
+## Future Research | Notes and Thoughts Towards a STAT946 Final Project
+```{r child="bnp/future.Rmd", echo=T}
+```
+
+## To Do
+```{r child="bnp/TODO.Rmd", echo=T}
+```

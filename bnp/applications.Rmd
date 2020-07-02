@@ -1,0 +1,20 @@
+### Jupyer Notebook Code Examples 
+
+If the steps in [#installation] were successfully followed to completion then the example application code will be available through the links in the __jupyter__ directory tree view.  The following sections describe the files, their usage, and possible avenues to use the stub code as a template to investigate other time series datasets.  The __jupyter__ files also contain markdown section with detailed descriptions of the code and its use.   
+
+#### Jupyter File data_explorer.ipynb
+In the files section of the running __jupyter notebook__ instance you will find the __/data__ directory which contains the two datasets 
+required for the intended example applications. The file __jupyter__ file __data_explorer.ipynb__ pulls the data and prepares python pickle files for use by the application files.  
+
+> As long as you data is in __.csv__ format, with an integer index beginning at zero, with all missing data interpolated, you can use  __data_explorer.ipynb__ as a template to import your own data sets.  Your data must be in a __.csv__ format with variable names in the column headers, all missing data backfilled and interpolated as required, and integer indexing starting at $0$. 
+
+#### Jupyter File data_prediction.ipynb
+
+#### Jupyter File anomaly_detection.ipynb
+__anomaly_detection.ipynb__ investigates using the number of states in the inferred model to make conclusions about the incoming data.  
+
+#### Jupyter File multivariate_analysis.ipynb
+
+
+
+

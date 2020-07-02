@@ -1,0 +1,102 @@
+### Tools
+
+#### MIT Probcomp
+The following provides a brief description of the tools we require to perform bnp based anomaly detection.  And the following section gives a set of instructions for installing the required environment.  
+
+The MIT Probabilistic Computing Project has made available [__probcomp__](https://github.com/probcomp) which is a set of libraries written to support the application of artificial intelligence.   To perform anomaly detection we will use some of the functionality provided by __cgpm__, __crosscat__, and __trcrpm__.  
+
+__cgpm__ is a repository of code to support the implementation of Composable Generative Population Models(CGPM).  CGPM provide a layer of abstraction that supports model composition and provides avenues for both sampling of random variable and generation of conditional densities. __crosscat__ provides tools for the Bayesian analysis of high dimensional data tables to support efficient sampling and joint distribution estimation via Bayesian network structure learning and nonparametric mixture modelling.  __crosscat__ can be used to identify predictive relationships between variables, uncover complex clustering.  Both __crosscat__ and __cgpm__ make extensive use of __cython__ and the associated  __c++__ backend. 
+
+__trcrpm__ is an implementation of Temporally Reweighted Chinese Restaurant Process Mixture Models described in [@saad2018trcrpm].  __trcrpm__ makes calls to __cgpm__ and __crosscat__ to provide a modified version of the Chinese Restaurant Process that introduces a time dependency between successive states of the model.   
+
+### First Time Installation and Setup {#installation}
+The following instruction assume the user has root access to a local system running __ubuntu 18.04__ and a working __git__ installation.
+
+__crosscat__, __cgpm__, and __trcrpm__ are all implemented in __python 2.7__ and tested on __ubuntu 16.04__.  The __trcrpm__ repository includes a __docker__ file for a container with all the required dependencies.  We make use of this docker file and the __jupyter notebook__ system to create and run a container on a local system from which to access the code required for the application.  
+
+To install docker, at a console in __ubuntu 18.04__ run the following:
+```
+# update the apt cache
+sudo apt update
+# install and update certificate support for docker
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+# update the apt cache to include the newly added/trusted docker repositories
+sudo apt update
+# install docker
+sudo apt install docker-ce
+```
+To allow your current non-root user to run docker, and update your user credentials, run the following and enter your your password at the prompt:
+```
+sudo usermod -aG docker ${USER}
+su - ${USER}
+```
+Next clone the __bnp_time_series__ repository in your desired directory:
+```
+git clone https://github.com/nick-torenvliet/bnp_time_series.git
+```
+Enter the docker directory:
+```
+cd docker
+```
+Create a docker container for the application:
+```
+docker build --tag bnp_time_series:00.00 .
+```
+Start the docker container with a shell:
+```
+docker run -p 8888:8888 -it bnp_time_series:00.00 
+```
+In the docker container shell clone the bnp_time_series repository:
+```
+git clone https://github.com/nick-torenvliet/bnp_time_series.git
+```
+Change directories to the bnp_time_series directory:
+```
+cd bnp_time_series
+```
+Activate the python virtual environment:
+```
+source /venv/bin/activate
+```
+Start __jupyter notebook__:
+```
+jupyter notebook --no-browser --port 8888 --ip 0.0.0.0 --allow-root
+```
+You will get system output that looks something like this:
+```
+[C 19:59:16.143 NotebookApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///root/.local/share/jupyter/runtime/nbserver-54-open.html
+    Or copy and paste one of these URLs:
+        http://(d59a4f26bf5d or 127.0.0.1):8888/?token=31fa0215191e6636abf09477761404d35484a4614aab4399
+
+```
+Copy the URL and paste it into a browser address bar.  Before following the URL, edit it so it is well-formed as the following:
+```
+http://127.0.0.1:8888/?token=31fa0215191e6636abf09477761404d35484a4614aab4399
+```
+You now should have __jupyter notebook__ running in your browser, on the container just created. 
+
+### Next Time System Startup
+
+If you've successfully performed all the step in [#installation] and want to come back to the system after shutting down the docker container only the following steps need to be performed.
+
+Start the docker container with a shell:
+```
+docker run -p 8888:8888 -it bnp_time_series:00.00 
+git clone https://github.com/nick-torenvliet/bnp_time_series.git
+cd bnp_time_series
+source /venv/bin/activate
+jupyter notebook --no-browser --port 8888 --ip 0.0.0.0 --allow-root
+```
+__jupyter notebook__ is now again accessible from the URL provided in the startup output. 
+
+There are methods to save the container state so that recloning of the repository is not required but that is outside the scope of this document. 
+
+
+
+
+

@@ -1,0 +1,49 @@
+<!-- Latex macros for html output
+
+A few very common things you should use:
+
+- $\bm{}$: Bold math.  Use bold for everything except scalars.
+- $\tx{}$: Text within math.  Use for abbreviating words, e.g., $A_{\tx{miss}}$.
+- $\xx, \YY$: Default macro convention for bold letters (small and capital case).
+- $\aal, \TTh$: Default macro convention for bold symbols (first two letters of symbol name, i.e., $\bm{\alpha}$ and $\bm{\Theta}$).
+- common stats symbols e.g., $\var$, $\cov$, $\iid$, $\N, defined below.
+-->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      TeX: {
+	  Macros: {
+	      bm: ["\\boldsymbol{#1}",1],
+	      tx: ["\\textrm{#1}",1],
+	      iid: ["\\overset{\\;\\tx{iid}\\;}{\\sim}"],
+	      ind: ["\\overset{\\:\\tx{ind}\\:}{\\sim}"],
+	      var: ["\\operatorname{var}"],
+	      cov: ["\\operatorname{cov}"],
+	      cor: ["\\operatorname{cor}"],
+	      N: ["\\mathcal{N}"],
+	      ww: ["{\\bm{w}}"],
+	      xx: ["{\\bm{x}}"],
+	      yy: ["{\\bm{y}}"],
+	      zz: ["{\\bm{z}}"],
+	      XX: ["{\\bm{X}}"],
+	      YY: ["{\\bm{Y}}"],
+	      ZZ: ["{\\bm{Z}}"],
+	      aal: ["{\\bm{\\alpha}}"],
+	      bbe: ["{\\bm{\\beta}}"],
+	      gga: ["{\\bm{\\gamma}}"],
+	      eet: ["{\\bm{\\eta}}"],
+	      lla: ["{\\bm{\\lambda}}"],
+	      mmu: ["{\\bm{\\mu}}"],
+	      pph: ["{\\bm{\\phi}}"],
+	      pps: ["{\\bm{\\psi}}"],
+	      rrh: ["{\\bm{\\rho}}"],
+	      ssi: ["{\\bm{\\sigma}}"],
+	      tta: ["{\\bm{\\tau}}"],
+	      tth: ["{\\bm{\\theta}}"],
+	      GGa: ["{\\bm{\\Gamma}}"],
+	      SSi: ["{\\bm{\\Sigma}}"],
+	      TTh: ["{\\bm{\\Theta}}"]
+	  }
+      }
+  });
+</script>
+
