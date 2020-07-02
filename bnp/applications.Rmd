@@ -1,6 +1,6 @@
 ### Jupyer Notebook Code Examples 
 
-If the steps in [#installation] were successfully followed to completion then the example application code will be available through the links in the __jupyter__ directory tree view.  The following sections describe the files, their usage, and possible avenues to use the stub code as a template to investigate other time series datasets.  The __jupyter__ files also contain markdown section with detailed descriptions of the code and its use.   
+If the steps in [the installation instructions](#installation) were successfully followed to completion then the example application code will be available through the links in the __jupyter__ directory tree view.  The following sections describe the files, their usage, and possible avenues to use the stub code as a template to investigate other time series datasets.  The __jupyter__ files also contain markdown section with detailed descriptions of the code and its use.   
 
 #### Jupyter File data_explorer.ipynb
 In the files section of the running __jupyter notebook__ instance you will find the __/data__ directory which contains the two datasets 
