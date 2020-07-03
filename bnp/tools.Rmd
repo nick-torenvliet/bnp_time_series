@@ -1,10 +1,9 @@
-### Tools and Installation
-MIT has provided __trcrpm__, an implementation of TRCRP, within the MIT Probabilistic Computing Project [@trcrpm].  The provided implementation is in __python 2.7__ and requires the ability to deal with a few interesting "details" of installation.  Rather than provide a tutorial on code version management and software installation, the following installation instructions gloss over some technical details to allow a wider audience the ability to work through the example applications.  
+The following sub-sections briefly describe the toolset required to run the example application code and provide instructions for their installation and usage. 
 
-#### Tools
+### Tools
 A breif discussion of the relevant tools follow.  The tools are widely available, and mostly freely, available; if required any search engine will quickly lead you to sources with more detailed information. 
 
-##### MIT ProbComp
+#### MIT ProbComp
 Useful Links:
 
 * [MIT Probabilistic Computing Project](http://probcomp.csail.mit.edu/)
@@ -20,7 +19,7 @@ __trcrpm__ is an implementation of Temporally Reweighted Chinese Restaurant Proc
 
 __cgpm__, __crosscat__, and __trcrpm__ make extensive use of __cython__ and the associated  __gnu c/c++__ backend. 
 
-##### Python and Tools
+#### Python and Tools
 Useful Links:
 
 * [Python 2.7](https://www.python.org/)
@@ -33,17 +32,29 @@ __cython__ is a superset of the __python__ language that provides a static compi
 
 __jupyter__ is a web-based development environment that is widely used in data science, scientific computing, and machine learning communities to communicate and collaborate. 
 
-##### docker
+#### docker
 Useful Links:
 
 * [docker](https://www.docker.com/)
 
 __docker__ is a popular platform as a server container system. __docker__ is used to automate the construction and deployment of specific software bundles and functionality within isolated containers.   Docker is useful for abstracting the installation details and process for specific software integration tasks, allowing the user to focus on system usage rather than installation and maintenance. 
 
-#### First Time Installation and Setup {#installation}
-The following instruction assume the user has root access to a local system running __ubuntu 18.04__ and a working __git__ installation.
+#### Ubuntu 
+Useful Links:
 
-__crosscat__, __cgpm__, and __trcrpm__ are all implemented in __python 2.7__ and tested on __ubuntu 16.04__.  The __trcrpm__ repository includes a __docker__ file for a container with all the required dependencies.  We make use of this __docker__ file and the __jupyter notebook__ system to create and run a container on a local system from which to access the code required for the application.  
+* [ubuntu](https://ubuntu.com/)
+
+__ubuntu__ is a popular open source operating system based on the linux kernel. 
+
+#### git
+Useful Links:
+
+* [git](https://git-scm.com/)
+
+__git__ is a popular distributed version control system. 
+
+### First Time Installation and Setup {#installation}
+__crosscat__, __cgpm__, and __trcrpm__ are all implemented in __python 2.7__ and tested on __ubuntu 16.04__.  The following instruction use __docker__ to build an image with the required software bundled.  __docker__ is then used to deploy the image, as a container, from which the example application code is run.  To succesfully complete the following instructions you have root access to a local system running __ubuntu 18.04__ and with a working __git__ installation.
 
 To install __docker__, at a console in __ubuntu 18.04__ run the following:
 ```
@@ -67,7 +78,7 @@ Next clone the __bnp_time_series__ repository in your desired directory:
 ```
 git clone https://github.com/nick-torenvliet/bnp_time_series.git
 ```
-Enter the docker directory:
+Enter the docker directory in the cloned __bnp_time_series__ repository:
 ```
 cd docker
 ```
@@ -107,13 +118,16 @@ http://127.0.0.1:8888/?token=31fa0215191e6636abf09477761404d35484a4614aab4399
 ```
 You now should have __jupyter notebook__ running in your browser, on the __docker container__ just created. 
 
-#### Post Installation Docker/Jupyter Startup
+### Post Installation Docker/Jupyter Startup
 
-If you've successfully performed all the step in [the installation instructions](#installation) and want to come back to the system after shutting down the __docker container__ only the following steps need to be performed.
+If you've successfully performed all the steps in the [installation instructions](#installation) and want to come back to the system after shutting down the __docker container__ the following steps need to be performed.
 
-Start the __docker container__ with a shell and in the shell, activate the __python__ vitural environment, and start __jupyter__:
+From a __ubuntu__ terminal shell, start the __docker container__ with a shell:
 ```
 docker run -p 8888:8888 -it bnp_time_series:00.00
+```
+In the __docker__ shell, change directories, activate the __python__ virtual environment, and start __jupyter__:
+```
 cd bnp_time_series
 source /venv/bin/activate
 jupyter notebook --no-browser --port 8888 --ip 0.0.0.0 --allow-root
