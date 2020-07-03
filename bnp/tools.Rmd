@@ -1,15 +1,46 @@
-### Tools
+### Tools and Installation
+MIT has provided __trcrpm__, an implementation of TRCRP, within the MIT Probabilistic Computing Project [@trcrpm].  The provided implementation is in __python 2.7__ and requires the ability to deal with a few interesting "details" of installation.  Rather than provide a tutorial on code version management and software installation, the following installation instructions gloss over some technical details to allow a wider audience the ability to work through the example applications.  
 
-#### MIT Probcomp
-The following provides a brief description of the tools we require to perform bnp based anomaly detection.  And the following section gives a set of instructions for installing the required environment.  
+#### Tools
+A breif discussion of the relevant tools follow.  The tools are widely available, and mostly freely, available; if required any search engine will quickly lead you to sources with more detailed information. 
+
+##### MIT ProbComp
+Useful Links:
+
+* [MIT Probabilistic Computing Project](http://probcomp.csail.mit.edu/)
+* [ProbComp Github Repository](https://github.com/probcomp/)
 
 The MIT Probabilistic Computing Project has made available [__probcomp__](https://github.com/probcomp) which is a set of libraries written to support the application of artificial intelligence.   To perform anomaly detection we will use some of the functionality provided by __cgpm__, __crosscat__, and __trcrpm__.  
 
-__cgpm__ is a repository of code to support the implementation of Composable Generative Population Models(CGPM).  CGPM provide a layer of abstraction that supports model composition and provides avenues for both sampling of random variable and generation of conditional densities. __crosscat__ provides tools for the Bayesian analysis of high dimensional data tables to support efficient sampling and joint distribution estimation via Bayesian network structure learning and nonparametric mixture modelling.  __crosscat__ can be used to identify predictive relationships between variables, and uncover complex clustering.  Both __crosscat__ and __cgpm__ make extensive use of __cython__ and the associated  __gnu c/c++__ backend. 
+__cgpm__ is a repository of code to support the implementation of Composable Generative Population Models(CGPM).  CGPM provide a layer of abstraction that supports model composition and provides avenues for both sampling of random variable and generation of conditional densities. 
+
+__crosscat__ provides tools for the Bayesian analysis of high dimensional data tables to support efficient sampling and joint distribution estimation via Bayesian network structure learning and nonparametric mixture modeling.  __crosscat__ can be used to identify predictive relationships between variables, and uncover complex clustering.  
 
 __trcrpm__ is an implementation of Temporally Reweighted Chinese Restaurant Process Mixture Models described in [@saad2018trcrpm].  __trcrpm__ makes calls to __cgpm__ and __crosscat__ to provide a modified version of the Chinese Restaurant Process that introduces a time dependency between successive states of the model.   
 
-### First Time Installation and Setup {#installation}
+__cgpm__, __crosscat__, and __trcrpm__ make extensive use of __cython__ and the associated  __gnu c/c++__ backend. 
+
+##### Python and Tools
+Useful Links:
+
+* [Python 2.7](https://www.python.org/)
+* [cython](https://cython.org/)
+* [jupyter](https://jupyter.org/)
+
+__python 2.7__ is an older version of the very popular __python__ programming language. __cgpm__, __crosscat__, and __trcrpm__ are written in __python 2.7__ which neccesitates its present usage. 
+
+__cython__ is a superset of the __python__ language that provides a static compiler with __c__ extensions and linkage.  __cython__ provides efficient computing for users of __python__.  
+
+__jupyter__ is a web-based development environment that is widely used in data science, scientific computing, and machine learning communities to communicate and collaborate. 
+
+##### docker
+Useful Links:
+
+* [docker](https://www.docker.com/)
+
+__docker__ is a popular platform as a server container system. __docker__ is used to automate the construction and deployment of specific software bundles and functionality within isolated containers.   Docker is useful for abstracting the installation details and process for specific software integration tasks, allowing the user to focus on system usage rather than installation and maintenance. 
+
+#### First Time Installation and Setup {#installation}
 The following instruction assume the user has root access to a local system running __ubuntu 18.04__ and a working __git__ installation.
 
 __crosscat__, __cgpm__, and __trcrpm__ are all implemented in __python 2.7__ and tested on __ubuntu 16.04__.  The __trcrpm__ repository includes a __docker__ file for a container with all the required dependencies.  We make use of this __docker__ file and the __jupyter notebook__ system to create and run a container on a local system from which to access the code required for the application.  
@@ -76,7 +107,7 @@ http://127.0.0.1:8888/?token=31fa0215191e6636abf09477761404d35484a4614aab4399
 ```
 You now should have __jupyter notebook__ running in your browser, on the __docker container__ just created. 
 
-### Next Time System Startup
+#### Post Installation Docker/Jupyter Startup
 
 If you've successfully performed all the step in [the installation instructions](#installation) and want to come back to the system after shutting down the __docker container__ only the following steps need to be performed.
 
