@@ -1,12 +1,11 @@
-### Jupyer Notebook Code Examples 
-
-If the steps in [the installation instructions](#installation) were successfully followed to completion then the example application code will be available through the links in the __jupyter__ directory tree view.  The following sections describe the files, their usage, and possible avenues to use the stub code as a template to investigate other time series datasets.  The __jupyter__ files also contain markdown section with detailed descriptions of the code, its use, the interpretation of results, and opportunities for the application to other datasets. 
+### Jupyer Notebook Example Applications
+If the steps in the [installation instructions](#installation) were successfully followed to completion then the example application code will be available through the links in the __jupyter__ directory tree view.  The following sections briefly describe the files.  The __jupyter__ files themselves contain detailed commentary on the usage and coding details, and provide suggestion to use the stub code as a templates to investigate other time series datasets and application.  
 
 #### Jupyter File data_explorer.ipynb
-In the files section of the running __jupyter notebook__ instance you will find the __/data__ directory which contains the two datasets 
-required for the intended example applications. The file __jupyter__ file __data_explorer.ipynb__ pulls the data and prepares python pickle files for use by the application files.  
+In the files section of the running __jupyter notebook__ instance you will find the __/data__ directory which contains the datasets 
+used by the example applications. __data_explorer.ipynb__ give template code to pull, examine, and package data for use by __trcrpm__.
 
-> As long as you data is in __.csv__ format, with an integer index beginning at zero, with all missing data interpolated, you can use  __data_explorer.ipynb__ as a template to import your own data sets.  Your data must be in a __.csv__ format with variable names in the column headers, all missing data backfilled and interpolated as required, and integer indexing starting at $0$. 
+If new data is in __.csv__ format, with an integer index beginning at zero, with all missing data interpolated, __data_explorer.ipynb__ can be used as a template to import and slice new data sets for use in the example application.  Your data must be in a __.csv__ format with variable names in the column headers, all missing data backfilled and interpolated as required, and integer indexing starting at $0$. All the __python__ expression required to accomplish these tasks are in __data_explorer.ipynb__. 
 
 #### Jupyter File data_prediction_one.ipynb
 The data used in this example application originates from a temperature sensor monitoring the temperature of a cooling water flow.  The data is indexed over the integers but the original timestamps showed each data point about 2 seconds apart.  Between samples 1500 and 2000 a significant deviation in the signal occurs.  This type of signal excursion is due to corroded contacts at some point in the signal path.

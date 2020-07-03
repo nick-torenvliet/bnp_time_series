@@ -19,15 +19,15 @@ user_link <- function(name, username) {
 }
 ```
 
-# Applications of Bayesian Nonparametric Methods
-## Problem Statement
+# Bayesian Nonarametric Applications
+## Problem Statements
 The Internet of Things(IOT) is made possible by the convergence of cheap data storage, ubiquitous networks, and fully connected sensing devices; all commodity items.  IOT brings with it the possibility to control and monitor processes at scale.  Statistical learning methods have enjoyed great success in a number of use cases but a major barrier to their widespread adoption across the IOT lies in the effort required to achieve useful implementations.  
 
 Consider digital signal anomaly detection.  Automatic identification and warning of abnormal signal indications is a desirable feature for maintainers of large systems.  Typically systems have tens or hundreds of thousands of measured signals; a number that is project to increase dramatically.  Deploying anomaly detection at scale across the system may not be economically efficient. Each signal, or group of signals, may have its own unique set of characteristic behaviors and failure modes.  Training a supervised model, or determining and writing the heuristic rules for each is an onerous, costly, and inefficient task.  Maintaining a collection of model and rules could also be prohibitive in terms of the number of skilled staff such an effort would required.
 
 Thus scalable signal anomaly detection requires general, unsupervised methods with efficient compute.  It is only when a solution requires very little treatment on a per signal basis and a modest set of computational resources that the solution will be of benefit to industry.  
 
-As will be demonstrated, preliminary investigations show, the Temporally Reweighted Chinese Restaurant Process (TRCRP)[@saad2018trcrpm] provides a largely self tuning, unsupervised, method for signal anomaly detection. 
+As will be demonstrated, these preliminary investigations show, the Temporally Reweighted Chinese Restaurant Process (TRCRP)[@saad2018trcrpm] provides a largely self tuning, unsupervised, method for signal anomaly detection. 
 
 ## Tools and Setup
 ```{r child="bnp/tools.Rmd", echo=T}
@@ -37,10 +37,7 @@ As will be demonstrated, preliminary investigations show, the Temporally Reweigh
 ```{r child="bnp/applications.Rmd", echo=T}
 ```
 
-## Future Research | Notes and Thoughts Towards a STAT946 Final Project
+## Towards a STAT946 Final Project
 ```{r child="bnp/future.Rmd", echo=T}
 ```
 
-## To Do
-```{r child="bnp/TODO.Rmd", echo=T}
-```
