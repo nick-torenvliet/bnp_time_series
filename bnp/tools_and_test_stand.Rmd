@@ -118,7 +118,7 @@ http://127.0.0.1:8888/?token=31fa0215191e6636abf09477761404d35484a4614aab4399
 ```
 You now should have __jupyter notebook__ running in your browser, served from the __docker container__ just created.  The investigation notebooks should be visible on a directory tree view in your browser.  
 
-### Post Installation Docker/Jupyter Startup
+### Post Installation docker/jupyter Startup
 
 If you've successfully performed all the steps in the [installation instructions](#installation) and want to come back to the system after shutting down the __docker container__ the following steps need to be performed.
 

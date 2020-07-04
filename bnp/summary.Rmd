@@ -1,0 +1,9 @@
+Initial investigations confirm the claims made by the originators of TRCRP.  The method was well able to characterize and predict the handful of data-sets we provided it.
+
+At times the code did not appear robust to specific choices for initialization; none of which were expressly out of scope due to theoretical limitations. The current code base is difficult to integrate and implement due to its reliance on __python 2.7__.
+
+In a use case not previously suggested there appeared to be success identifying anomalies in time series.  However __trcrpm__ models experienced instability when presented with an extended series of anomalies.  Unfortunately is unclear as to whether this was due to the requirement for further academic treatment to deal with model instability in specific contexts -- or due to the code base requiring re-factoring.  
+
+Based only on the evidence provided by these investigations there appears to be merit in further pursuing an investigation into the utility of TRCRP for signal monitoring and anomaly detection at scale.  The anomaly detection use-case is novel, and ultimately if successful, would be of value in a great many contexts.  
+
+Given TRCRP provides ideal grounds for signal monitoring and anomaly detection at scale.  Ultimately compute will become an issue.  Further research might aim to provide a current, robust, and efficient TRCRP implementation.   

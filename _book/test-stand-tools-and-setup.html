@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Test Stand Tools and Setup | Topics in Bayesian Computing</title>
+  <meta name="description" content="3 Test Stand Tools and Setup | Topics in Bayesian Computing" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Test Stand Tools and Setup | Topics in Bayesian Computing" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Test Stand Tools and Setup | Topics in Bayesian Computing" />
+  
+  
+  
+
+
+
+<meta name="date" content="2020-07-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="the-bayesian-inference-problem.html"/>
+<link rel="next" href="investigation-results.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<!-- Latex macros for html output
+
+A few very common things you should use:
+
+- $\bm{}$: Bold math.  Use bold for everything except scalars.
+- $\tx{}$: Text within math.  Use for abbreviating words, e.g., $A_{\tx{miss}}$.
+- $\xx, \YY$: Default macro convention for bold letters (small and capital case).
+- $\aal, \TTh$: Default macro convention for bold symbols (first two letters of symbol name, i.e., $\bm{\alpha}$ and $\bm{\Theta}$).
+- common stats symbols e.g., $\var$, $\cov$, $\iid$, $\N, defined below.
+-->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      TeX: {
+	  Macros: {
+	      bm: ["\\boldsymbol{#1}",1],
+	      tx: ["\\textrm{#1}",1],
+	      iid: ["\\overset{\\;\\tx{iid}\\;}{\\sim}"],
+	      ind: ["\\overset{\\:\\tx{ind}\\:}{\\sim}"],
+	      var: ["\\operatorname{var}"],
+	      cov: ["\\operatorname{cov}"],
+	      cor: ["\\operatorname{cor}"],
+	      N: ["\\mathcal{N}"],
+	      ww: ["{\\bm{w}}"],
+	      xx: ["{\\bm{x}}"],
+	      yy: ["{\\bm{y}}"],
+	      zz: ["{\\bm{z}}"],
+	      XX: ["{\\bm{X}}"],
+	      YY: ["{\\bm{Y}}"],
+	      ZZ: ["{\\bm{Z}}"],
+	      aal: ["{\\bm{\\alpha}}"],
+	      bbe: ["{\\bm{\\beta}}"],
+	      gga: ["{\\bm{\\gamma}}"],
+	      eet: ["{\\bm{\\eta}}"],
+	      lla: ["{\\bm{\\lambda}}"],
+	      mmu: ["{\\bm{\\mu}}"],
+	      pph: ["{\\bm{\\phi}}"],
+	      pps: ["{\\bm{\\psi}}"],
+	      rrh: ["{\\bm{\\rho}}"],
+	      ssi: ["{\\bm{\\sigma}}"],
+	      tta: ["{\\bm{\\tau}}"],
+	      tth: ["{\\bm{\\theta}}"],
+	      GGa: ["{\\bm{\\Gamma}}"],
+	      SSi: ["{\\bm{\\Sigma}}"],
+	      TTh: ["{\\bm{\\Theta}}"]
+	  }
+      }
+  });
+</script>
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> The Practical Problem</a></li>
+<li class="chapter" data-level="2" data-path="the-bayesian-inference-problem.html"><a href="the-bayesian-inference-problem.html"><i class="fa fa-check"></i><b>2</b> The Bayesian Inference Problem</a><ul>
+<li class="chapter" data-level="2.1" data-path="the-bayesian-inference-problem.html"><a href="the-bayesian-inference-problem.html#addressing-scalability"><i class="fa fa-check"></i><b>2.1</b> Addressing Scalability</a></li>
+<li class="chapter" data-level="2.2" data-path="the-bayesian-inference-problem.html"><a href="the-bayesian-inference-problem.html#the-trcrp-method"><i class="fa fa-check"></i><b>2.2</b> The TRCRP Method</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="test-stand-tools-and-setup.html"><a href="test-stand-tools-and-setup.html"><i class="fa fa-check"></i><b>3</b> Test Stand Tools and Setup</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="test-stand-tools-and-setup.html"><a href="test-stand-tools-and-setup.html#tools"><i class="fa fa-check"></i><b>3.0.1</b> Tools</a></li>
+<li class="chapter" data-level="3.0.2" data-path="test-stand-tools-and-setup.html"><a href="test-stand-tools-and-setup.html#installation"><i class="fa fa-check"></i><b>3.0.2</b> First Time Installation and Setup</a></li>
+<li class="chapter" data-level="3.0.3" data-path="test-stand-tools-and-setup.html"><a href="test-stand-tools-and-setup.html#post-installation-dockerjupyter-startup"><i class="fa fa-check"></i><b>3.0.3</b> Post Installation docker/jupyter Startup</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="investigation-results.html"><a href="investigation-results.html"><i class="fa fa-check"></i><b>4</b> Investigation Results</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="investigation-results.html"><a href="investigation-results.html#investigation_01_univariate_state_assignment.ipynb"><i class="fa fa-check"></i><b>4.0.1</b> investigation_01_univariate_state_assignment.ipynb</a></li>
+<li class="chapter" data-level="4.0.2" data-path="investigation-results.html"><a href="investigation-results.html#investigation_02_multivariate_prediction.ipynb"><i class="fa fa-check"></i><b>4.0.2</b> investigation_02_multivariate_prediction.ipynb</a></li>
+<li class="chapter" data-level="4.0.3" data-path="investigation-results.html"><a href="investigation-results.html#investigation_03_multivariate_state_assignment.ipynb"><i class="fa fa-check"></i><b>4.0.3</b> investigation_03_multivariate_state_assignment.ipynb</a></li>
+<li class="chapter" data-level="4.0.4" data-path="investigation-results.html"><a href="investigation-results.html#investigation_04_univariate_streaming_state_assignment.ipynb"><i class="fa fa-check"></i><b>4.0.4</b> investigation_04_univariate_streaming_state_assignment.ipynb</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>5</b> Summary</a></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Topics in Bayesian Computing</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="test-stand-tools-and-setup" class="section level1">
+<h1><span class="header-section-number">3</span> Test Stand Tools and Setup</h1>
+<p>The following sub-sections briefly describe the toolset required to run the investigation code and provide instructions for their installation and usage.</p>
+<div id="tools" class="section level3">
+<h3><span class="header-section-number">3.0.1</span> Tools</h3>
+<p>A brief discussion of the relevant tools follow. The tools are widely, and mostly freely, available.</p>
+<div id="mit-probcomp" class="section level4">
+<h4><span class="header-section-number">3.0.1.1</span> MIT ProbComp</h4>
+<p>Useful Links:</p>
+<ul>
+<li><a href="http://probcomp.csail.mit.edu/">MIT Probabilistic Computing Project</a></li>
+<li><a href="https://github.com/probcomp/">ProbComp Github Repository</a></li>
+</ul>
+<p>The MIT Probabilistic Computing Project has made available <a href="https://github.com/probcomp"><strong>probcomp</strong></a> which is a set of libraries written to support the application of artificial intelligence. These investigations use some of the functionality provided by <strong>cgpm</strong>, <strong>crosscat</strong>, and <strong>trcrpm</strong>.</p>
+<p><strong>cgpm</strong> is a repository of code to support the implementation of Composable Generative Population Models(CGPM). CGPM provide a layer of abstraction that supports model composition and provides avenues for both sampling of random variable and generation of conditional densities.</p>
+<p><strong>crosscat</strong> provides tools for the Bayesian analysis of high dimensional data tables to support efficient sampling and joint distribution estimation via Bayesian network structure learning and nonparametric mixture modeling. <strong>crosscat</strong> can be used to identify predictive relationships between variables, and uncover complex clustering.</p>
+<p><strong>trcrpm</strong> is an implementation of Temporally Reweighted Chinese Restaurant Process Mixture Models described in <span class="citation">(Saad and Mansinghka <a href="#ref-saad2018trcrpm" role="doc-biblioref">2018</a>)</span>. <strong>trcrpm</strong> makes calls to <strong>cgpm</strong> and <strong>crosscat</strong> to provide a nested version of the Chinese Restaurant Process that introduces a time dependency between successive data-points of the model.</p>
+<p><strong>cgpm</strong>, <strong>crosscat</strong>, and <strong>trcrpm</strong> make extensive use of <strong>cython</strong> and the associated <strong>gnu c/c++</strong> backend.</p>
+</div>
+<div id="python-and-tools" class="section level4">
+<h4><span class="header-section-number">3.0.1.2</span> Python and Tools</h4>
+<p>Useful Links:</p>
+<ul>
+<li><a href="https://www.python.org/">Python 2.7</a></li>
+<li><a href="https://cython.org/">cython</a></li>
+<li><a href="https://jupyter.org/">jupyter</a></li>
+</ul>
+<p><strong>python 2.7</strong> is an older version of the very popular <strong>python</strong> programming language. <strong>cgpm</strong>, <strong>crosscat</strong>, and <strong>trcrpm</strong> are written in <strong>python 2.7</strong> which neccesitates its present usage.</p>
+<p><strong>cython</strong> is a superset of the <strong>python</strong> language that provides a static compiler with <strong>c</strong> extensions and linkage. <strong>cython</strong> provides efficient computing for users of <strong>python</strong>.</p>
+<p><strong>jupyter</strong> is a web-based development environment that is widely used in data science, scientific computing, and machine learning communities to communicate and collaborate.</p>
+</div>
+<div id="docker" class="section level4">
+<h4><span class="header-section-number">3.0.1.3</span> docker</h4>
+<p>Useful Links:</p>
+<ul>
+<li><a href="https://www.docker.com/">docker</a></li>
+</ul>
+<p><strong>docker</strong> is a popular “platform as a service” container system. <strong>docker</strong> is used to automate the construction and deployment of specific software bundles and functionality within isolated containers. Docker is useful for abstracting the installation details and process for specific software integration tasks, allowing the user to focus on system usage rather than installation and maintenance.</p>
+</div>
+<div id="ubuntu" class="section level4">
+<h4><span class="header-section-number">3.0.1.4</span> Ubuntu</h4>
+<p>Useful Links:</p>
+<ul>
+<li><a href="https://ubuntu.com/">ubuntu</a></li>
+</ul>
+<p><strong>ubuntu</strong> is a popular open source operating system based on the linux kernel.</p>
+</div>
+<div id="git" class="section level4">
+<h4><span class="header-section-number">3.0.1.5</span> git</h4>
+<p>Useful Links:</p>
+<ul>
+<li><a href="https://git-scm.com/">git</a></li>
+</ul>
+<p><strong>git</strong> is a popular distributed version control system.</p>
+</div>
+</div>
+<div id="installation" class="section level3">
+<h3><span class="header-section-number">3.0.2</span> First Time Installation and Setup</h3>
+<p><strong>crosscat</strong>, <strong>cgpm</strong>, and <strong>trcrpm</strong> are all implemented in <strong>python 2.7</strong> and tested on <strong>ubuntu 16.04</strong>. The following instruction use <strong>docker</strong> to build an image with the required software bundled. <strong>docker</strong> is then used to deploy the image, as a container, from which the investigation code is run. To successfully complete the following instructions requires root access to a local system running <strong>ubuntu 18.04</strong> with a working <strong>git</strong> installation.</p>
+<p>To install <strong>docker</strong>, at a console in <strong>ubuntu 18.04</strong> run the following:</p>
+<pre><code># update the apt cache
+sudo apt update
+# install and update certificate support for docker
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable&quot;
+# update the apt cache to include the newly added/trusted docker repositories
+sudo apt update
+# install docker
+sudo apt install docker-ce</code></pre>
+<p>To allow your current non-root user to run <strong>docker</strong>, and update user credentials, run the following and enter the root password at the prompt:</p>
+<pre><code>sudo usermod -aG docker ${USER}
+su - ${USER}</code></pre>
+<p>Next clone the <strong>bnp_time_series</strong> repository in some desired directory:</p>
+<pre><code>git clone https://github.com/nick-torenvliet/bnp_time_series.git</code></pre>
+<p>Enter the docker directory in the cloned <strong>bnp_time_series</strong> repository:</p>
+<pre><code>cd bnp_time_series/docker</code></pre>
+<p>Create a <strong>docker container</strong> for the application, monitor system resource usage to ensure the process hasn’t stalled:</p>
+<pre><code>docker build --tag bnp_time_series:00.00 .</code></pre>
+<p>Start the <strong>docker container</strong> with a shell:</p>
+<pre><code>docker run -p 8888:8888 -it bnp_time_series:00.00 </code></pre>
+<p>In the <strong>docker container</strong> shell change directories to the bnp_time_series directory:</p>
+<pre><code>cd bnp_time_series</code></pre>
+<p>Activate the <strong>python</strong> virtual environment:</p>
+<pre><code>source /venv/bin/activate</code></pre>
+<p>Start <strong>jupyter notebook</strong>:</p>
+<pre><code>jupyter notebook --no-browser --port 8888 --ip 0.0.0.0 --allow-root</code></pre>
+<p>You will get system output that looks something like this:</p>
+<pre><code>[C 19:59:16.143 NotebookApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///root/.local/share/jupyter/runtime/nbserver-54-open.html
+    Or copy and paste one of these URLs:
+        http://(d59a4f26bf5d or 127.0.0.1):8888/?token=31fa0215191e6636abf09477761404d35484a4614aab4399
+</code></pre>
+<p>Copy the URL and paste it into a browser address bar. Before following the URL, edit it so it is well-formed as the following:</p>
+<pre><code>http://127.0.0.1:8888/?token=31fa0215191e6636abf09477761404d35484a4614aab4399</code></pre>
+<p>You now should have <strong>jupyter notebook</strong> running in your browser, served from the <strong>docker container</strong> just created. The investigation notebooks should be visible on a directory tree view in your browser.</p>
+</div>
+<div id="post-installation-dockerjupyter-startup" class="section level3">
+<h3><span class="header-section-number">3.0.3</span> Post Installation docker/jupyter Startup</h3>
+<p>If you’ve successfully performed all the steps in the <a href="test-stand-tools-and-setup.html#installation">installation instructions</a> and want to come back to the system after shutting down the <strong>docker container</strong> the following steps need to be performed.</p>
+<p>From a <strong>ubuntu</strong> terminal shell, start the <strong>docker container</strong> with a shell:</p>
+<pre><code>docker run -p 8888:8888 -it bnp_time_series:00.00</code></pre>
+<p>In the <strong>docker</strong> shell, change directories, activate the <strong>python</strong> virtual environment, and start <strong>jupyter</strong>:</p>
+<pre><code>cd bnp_time_series
+source /venv/bin/activate
+jupyter notebook --no-browser --port 8888 --ip 0.0.0.0 --allow-root</code></pre>
+<p><strong>jupyter notebook</strong> is now again accessible from the URL provided in its startup output.</p>
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-saad2018trcrpm">
+<p>Saad, Feras A., and Vikash K. Mansinghka. 2018. “Temporally-Reweighted Chinese Restaurant Process Mixtures for Clustering, Imputing, and Forecasting Multivariate Time Series.” In <em>AISTATS 2018: Proceedings of the 21st International Conference on Artificial Intelligence and Statistics</em>, 84:755–64. Proceedings of Machine Learning Research. Playa Blanca, Lanzarote, Canary Islands: PMLR.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="the-bayesian-inference-problem.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="investigation-results.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

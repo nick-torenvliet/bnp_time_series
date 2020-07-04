@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Summary | Topics in Bayesian Computing</title>
+  <meta name="description" content="5 Summary | Topics in Bayesian Computing" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Summary | Topics in Bayesian Computing" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Summary | Topics in Bayesian Computing" />
+  
+  
+  
+
+
+
+<meta name="date" content="2020-07-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="investigation-results.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<!-- Latex macros for html output
+
+A few very common things you should use:
+
+- $\bm{}$: Bold math.  Use bold for everything except scalars.
+- $\tx{}$: Text within math.  Use for abbreviating words, e.g., $A_{\tx{miss}}$.
+- $\xx, \YY$: Default macro convention for bold letters (small and capital case).
+- $\aal, \TTh$: Default macro convention for bold symbols (first two letters of symbol name, i.e., $\bm{\alpha}$ and $\bm{\Theta}$).
+- common stats symbols e.g., $\var$, $\cov$, $\iid$, $\N, defined below.
+-->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      TeX: {
+	  Macros: {
+	      bm: ["\\boldsymbol{#1}",1],
+	      tx: ["\\textrm{#1}",1],
+	      iid: ["\\overset{\\;\\tx{iid}\\;}{\\sim}"],
+	      ind: ["\\overset{\\:\\tx{ind}\\:}{\\sim}"],
+	      var: ["\\operatorname{var}"],
+	      cov: ["\\operatorname{cov}"],
+	      cor: ["\\operatorname{cor}"],
+	      N: ["\\mathcal{N}"],
+	      ww: ["{\\bm{w}}"],
+	      xx: ["{\\bm{x}}"],
+	      yy: ["{\\bm{y}}"],
+	      zz: ["{\\bm{z}}"],
+	      XX: ["{\\bm{X}}"],
+	      YY: ["{\\bm{Y}}"],
+	      ZZ: ["{\\bm{Z}}"],
+	      aal: ["{\\bm{\\alpha}}"],
+	      bbe: ["{\\bm{\\beta}}"],
+	      gga: ["{\\bm{\\gamma}}"],
+	      eet: ["{\\bm{\\eta}}"],
+	      lla: ["{\\bm{\\lambda}}"],
+	      mmu: ["{\\bm{\\mu}}"],
+	      pph: ["{\\bm{\\phi}}"],
+	      pps: ["{\\bm{\\psi}}"],
+	      rrh: ["{\\bm{\\rho}}"],
+	      ssi: ["{\\bm{\\sigma}}"],
+	      tta: ["{\\bm{\\tau}}"],
+	      tth: ["{\\bm{\\theta}}"],
+	      GGa: ["{\\bm{\\Gamma}}"],
+	      SSi: ["{\\bm{\\Sigma}}"],
+	      TTh: ["{\\bm{\\Theta}}"]
+	  }
+      }
+  });
+</script>
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> The Practical Problem</a></li>
+<li class="chapter" data-level="2" data-path="the-bayesian-inference-problem.html"><a href="the-bayesian-inference-problem.html"><i class="fa fa-check"></i><b>2</b> The Bayesian Inference Problem</a><ul>
+<li class="chapter" data-level="2.1" data-path="the-bayesian-inference-problem.html"><a href="the-bayesian-inference-problem.html#addressing-scalability"><i class="fa fa-check"></i><b>2.1</b> Addressing Scalability</a></li>
+<li class="chapter" data-level="2.2" data-path="the-bayesian-inference-problem.html"><a href="the-bayesian-inference-problem.html#the-trcrp-method"><i class="fa fa-check"></i><b>2.2</b> The TRCRP Method</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="test-stand-tools-and-setup.html"><a href="test-stand-tools-and-setup.html"><i class="fa fa-check"></i><b>3</b> Test Stand Tools and Setup</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="test-stand-tools-and-setup.html"><a href="test-stand-tools-and-setup.html#tools"><i class="fa fa-check"></i><b>3.0.1</b> Tools</a></li>
+<li class="chapter" data-level="3.0.2" data-path="test-stand-tools-and-setup.html"><a href="test-stand-tools-and-setup.html#installation"><i class="fa fa-check"></i><b>3.0.2</b> First Time Installation and Setup</a></li>
+<li class="chapter" data-level="3.0.3" data-path="test-stand-tools-and-setup.html"><a href="test-stand-tools-and-setup.html#post-installation-dockerjupyter-startup"><i class="fa fa-check"></i><b>3.0.3</b> Post Installation docker/jupyter Startup</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="investigation-results.html"><a href="investigation-results.html"><i class="fa fa-check"></i><b>4</b> Investigation Results</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="investigation-results.html"><a href="investigation-results.html#investigation_01_univariate_state_assignment.ipynb"><i class="fa fa-check"></i><b>4.0.1</b> investigation_01_univariate_state_assignment.ipynb</a></li>
+<li class="chapter" data-level="4.0.2" data-path="investigation-results.html"><a href="investigation-results.html#investigation_02_multivariate_prediction.ipynb"><i class="fa fa-check"></i><b>4.0.2</b> investigation_02_multivariate_prediction.ipynb</a></li>
+<li class="chapter" data-level="4.0.3" data-path="investigation-results.html"><a href="investigation-results.html#investigation_03_multivariate_state_assignment.ipynb"><i class="fa fa-check"></i><b>4.0.3</b> investigation_03_multivariate_state_assignment.ipynb</a></li>
+<li class="chapter" data-level="4.0.4" data-path="investigation-results.html"><a href="investigation-results.html#investigation_04_univariate_streaming_state_assignment.ipynb"><i class="fa fa-check"></i><b>4.0.4</b> investigation_04_univariate_streaming_state_assignment.ipynb</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>5</b> Summary</a></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Topics in Bayesian Computing</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="summary" class="section level1">
+<h1><span class="header-section-number">5</span> Summary</h1>
+<p>Initial investigations confirm the claims made by the originators of TRCRP. The method was well able to characterize and predict the handful of data-sets we provided it.</p>
+<p>At times the code did not appear robust to specific choices for initialization; none of which were expressly out of scope due to theoretical limitations. The current code base is difficult to integrate and implement due to its reliance on <strong>python 2.7</strong>.</p>
+<p>In a use case not previously suggested there appeared to be success identifying anomalies in time series. However <strong>trcrpm</strong> models experienced instability when presented with an extended series of anomalies. Unfortunately is unclear as to whether this was due to the requirement for further academic treatment to deal with model instability in specific contexts – or due to the code base requiring re-factoring.</p>
+<p>Based only on the evidence provided by these investigations there appears to be merit in further pursuing an investigation into the utility of TRCRP for signal monitoring and anomaly detection at scale. The anomaly detection use-case is novel, and ultimately if successful, would be of value in a great many contexts.</p>
+<p>Given TRCRP provides ideal grounds for signal monitoring and anomaly detection at scale. Ultimately compute will become an issue. Further research might aim to provide a current, robust, and efficient TRCRP implementation.</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="investigation-results.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

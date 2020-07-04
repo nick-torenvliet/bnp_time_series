@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 The Bayesian Inference Problem | Topics in Bayesian Computing</title>
+  <meta name="description" content="2 The Bayesian Inference Problem | Topics in Bayesian Computing" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 The Bayesian Inference Problem | Topics in Bayesian Computing" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 The Bayesian Inference Problem | Topics in Bayesian Computing" />
+  
+  
+  
+
+
+
+<meta name="date" content="2020-07-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="test-stand-tools-and-setup.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<!-- Latex macros for html output
+
+A few very common things you should use:
+
+- $\bm{}$: Bold math.  Use bold for everything except scalars.
+- $\tx{}$: Text within math.  Use for abbreviating words, e.g., $A_{\tx{miss}}$.
+- $\xx, \YY$: Default macro convention for bold letters (small and capital case).
+- $\aal, \TTh$: Default macro convention for bold symbols (first two letters of symbol name, i.e., $\bm{\alpha}$ and $\bm{\Theta}$).
+- common stats symbols e.g., $\var$, $\cov$, $\iid$, $\N, defined below.
+-->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      TeX: {
+	  Macros: {
+	      bm: ["\\boldsymbol{#1}",1],
+	      tx: ["\\textrm{#1}",1],
+	      iid: ["\\overset{\\;\\tx{iid}\\;}{\\sim}"],
+	      ind: ["\\overset{\\:\\tx{ind}\\:}{\\sim}"],
+	      var: ["\\operatorname{var}"],
+	      cov: ["\\operatorname{cov}"],
+	      cor: ["\\operatorname{cor}"],
+	      N: ["\\mathcal{N}"],
+	      ww: ["{\\bm{w}}"],
+	      xx: ["{\\bm{x}}"],
+	      yy: ["{\\bm{y}}"],
+	      zz: ["{\\bm{z}}"],
+	      XX: ["{\\bm{X}}"],
+	      YY: ["{\\bm{Y}}"],
+	      ZZ: ["{\\bm{Z}}"],
+	      aal: ["{\\bm{\\alpha}}"],
+	      bbe: ["{\\bm{\\beta}}"],
+	      gga: ["{\\bm{\\gamma}}"],
+	      eet: ["{\\bm{\\eta}}"],
+	      lla: ["{\\bm{\\lambda}}"],
+	      mmu: ["{\\bm{\\mu}}"],
+	      pph: ["{\\bm{\\phi}}"],
+	      pps: ["{\\bm{\\psi}}"],
+	      rrh: ["{\\bm{\\rho}}"],
+	      ssi: ["{\\bm{\\sigma}}"],
+	      tta: ["{\\bm{\\tau}}"],
+	      tth: ["{\\bm{\\theta}}"],
+	      GGa: ["{\\bm{\\Gamma}}"],
+	      SSi: ["{\\bm{\\Sigma}}"],
+	      TTh: ["{\\bm{\\Theta}}"]
+	  }
+      }
+  });
+</script>
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> The Practical Problem</a></li>
+<li class="chapter" data-level="2" data-path="the-bayesian-inference-problem.html"><a href="the-bayesian-inference-problem.html"><i class="fa fa-check"></i><b>2</b> The Bayesian Inference Problem</a><ul>
+<li class="chapter" data-level="2.1" data-path="the-bayesian-inference-problem.html"><a href="the-bayesian-inference-problem.html#addressing-scalability"><i class="fa fa-check"></i><b>2.1</b> Addressing Scalability</a></li>
+<li class="chapter" data-level="2.2" data-path="the-bayesian-inference-problem.html"><a href="the-bayesian-inference-problem.html#the-trcrp-method"><i class="fa fa-check"></i><b>2.2</b> The TRCRP Method</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="test-stand-tools-and-setup.html"><a href="test-stand-tools-and-setup.html"><i class="fa fa-check"></i><b>3</b> Test Stand Tools and Setup</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="test-stand-tools-and-setup.html"><a href="test-stand-tools-and-setup.html#tools"><i class="fa fa-check"></i><b>3.0.1</b> Tools</a></li>
+<li class="chapter" data-level="3.0.2" data-path="test-stand-tools-and-setup.html"><a href="test-stand-tools-and-setup.html#installation"><i class="fa fa-check"></i><b>3.0.2</b> First Time Installation and Setup</a></li>
+<li class="chapter" data-level="3.0.3" data-path="test-stand-tools-and-setup.html"><a href="test-stand-tools-and-setup.html#post-installation-dockerjupyter-startup"><i class="fa fa-check"></i><b>3.0.3</b> Post Installation docker/jupyter Startup</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="investigation-results.html"><a href="investigation-results.html"><i class="fa fa-check"></i><b>4</b> Investigation Results</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="investigation-results.html"><a href="investigation-results.html#investigation_01_univariate_state_assignment.ipynb"><i class="fa fa-check"></i><b>4.0.1</b> investigation_01_univariate_state_assignment.ipynb</a></li>
+<li class="chapter" data-level="4.0.2" data-path="investigation-results.html"><a href="investigation-results.html#investigation_02_multivariate_prediction.ipynb"><i class="fa fa-check"></i><b>4.0.2</b> investigation_02_multivariate_prediction.ipynb</a></li>
+<li class="chapter" data-level="4.0.3" data-path="investigation-results.html"><a href="investigation-results.html#investigation_03_multivariate_state_assignment.ipynb"><i class="fa fa-check"></i><b>4.0.3</b> investigation_03_multivariate_state_assignment.ipynb</a></li>
+<li class="chapter" data-level="4.0.4" data-path="investigation-results.html"><a href="investigation-results.html#investigation_04_univariate_streaming_state_assignment.ipynb"><i class="fa fa-check"></i><b>4.0.4</b> investigation_04_univariate_streaming_state_assignment.ipynb</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>5</b> Summary</a></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Topics in Bayesian Computing</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="the-bayesian-inference-problem" class="section level1">
+<h1><span class="header-section-number">2</span> The Bayesian Inference Problem</h1>
+<div id="addressing-scalability" class="section level2">
+<h2><span class="header-section-number">2.1</span> Addressing Scalability</h2>
+<p>The Temporally Re-weighted Chinese Restaurant Process (TRCRP) <span class="citation">(Saad and Mansinghka <a href="#ref-saad2018trcrpm" role="doc-biblioref">2018</a>)</span> is a Bayesian Nonparametric(BNP) method that could effectively address many of the scalability issues related to signal monitoring and anomaly detection. The originators of the method report impressive results with respect to its ability to impute and predict time series data. As the authors report, the chief benefits of the method are its relative accuracy, and that such accuracy is achieved without significant modeling, or consideration of parameters, on a per time series basis.</p>
+<p>To test these claims, this preliminary investigation made use of the examples provided by the original authors and applied the method to a set of time series from industrial processes. The results provide an intuition for the inner machinations of the TRCRP process and indicate that there may be reason for optimism in terms of its utility. Additionally the results have uncovered a new use case for the method in the context of identifying anomalous signal behavior via state assignment.</p>
+</div>
+<div id="the-trcrp-method" class="section level2">
+<h2><span class="header-section-number">2.2</span> The TRCRP Method</h2>
+<p>BNP based methods such as TRCRP are often used to model data where the dimension of interest may increase with the size of the data set. BNP models allow for an infinite number of possible categories, states, or clusters, according to the context of application. As such it is a possible candidate for the modeling of signals from devices with an unknown, possibly infinite, number of failure modes. Further to this the state attribution, or cluster association, rules these methods utilize are sensitive to the number of data-points already existing in a given state or cluster; unknown or unfamiliar incoming data will tend to not be grouped with familiar data. Again this makes such methods possible candidates for identifying anomalous data points.</p>
+<p>TRCRP is a temporal extension of the Chinese Restaurant process. Samples from its posterior are distributed according to a Normal distribution, with a Normal-InverseGamma prior. It uses a Markov Chain Monte Carlo processes for sampling, and hyper parameter re-sampling.</p>
+<p>Unlike the CRP, TRCRP introduces a temporal dependence on the data, relaxing the requirement for exchangeability normally associated with BNP processes. Inference then becomes dependent not only on the current data-point, but also on some previous window of data <span class="math inline">\(p\)</span> samples wide. With <span class="math inline">\(D_{tk}:= \{ \xx_{t^\prime-p:t^\prime-1} \mid z_{t^\prime} = k, 1 \leq t^\prime \lt t \}\)</span> the collection of previous data points <span class="math inline">\(x_t^\prime\)</span> assigned to cluster <span class="math inline">\(k\)</span>. <span class="math inline">\(\xx_t\)</span> becomes dependent on <span class="math inline">\(\xx_{t-p:t-1}\)</span> for some time window of width <span class="math inline">\(p\)</span>
+by distributing time series data-points <span class="math inline">\((x_1,..,x_n)\)</span> as:</p>
+<p><span class="math display" id="eq:trcrp-def">\[
+\begin{align*}
+&amp;\{ \theta \} \iid \pi_\Theta( \cdot \mid \lambda_F)\\
+&amp;Pr[z_t = k \mid \zz_{1:t-1},\xx_{t-p:t-1};\alpha,\lambda_G] \quad \quad (t = 1,2, ...)\\
+&amp;\alpha      
+  \begin{cases}
+      n_{tk}G(\xx_{t-p:t-1};D_{tk},\lambda_G) &amp; if\quad 1\leq k \leq max(\zz_{1:t-1})\\
+      \alpha G(\xx_{t-p:t-1};\lambda_G) &amp; if \quad k = max(\zz_{1:t-1})+1  \\
+  \end{cases} \\
+&amp; x_t \mid z_t,\{\theta_k\}\sim F(\cdot\mid\theta_{z_t}) \tag{2.1}\\
+\end{align*}
+\]</span>
+With Normally distributed <span class="math inline">\(F\)</span>:
+<span class="math display">\[
+\begin{align*}
+&amp;F(x_t\mid \mu_k, \sigma_k) = N(x_t \mid \mu_k, \sigma^2_k) &amp; \\
+\end{align*}
+\]</span>
+And Normal-InverseGame prior <span class="math inline">\(\pi_\Theta\)</span>:
+<span class="math display">\[
+\begin{align*}
+\pi_\Theta(\mu_k, \sigma^2_k\mid m,V, a,b) = N(\mu_k\mid m, \sigma^2_k V) I G(\sigma^2_k\mid a,b)\\
+\end{align*}
+\]</span>
+<span class="math inline">\(\theta_k = (\mu_k, \sigma^2_k)\)</span> are the cluster parameters of <span class="math inline">\(F\)</span>, and <span class="math inline">\(\lambda_F = (m,V,a,b)\)</span> the hyper-parameters of prior <span class="math inline">\(\pi_\Theta\)</span>.</p>
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-saad2018trcrpm">
+<p>Saad, Feras A., and Vikash K. Mansinghka. 2018. “Temporally-Reweighted Chinese Restaurant Process Mixtures for Clustering, Imputing, and Forecasting Multivariate Time Series.” In <em>AISTATS 2018: Proceedings of the 21st International Conference on Artificial Intelligence and Statistics</em>, 84:755–64. Proceedings of Machine Learning Research. Playa Blanca, Lanzarote, Canary Islands: PMLR.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="test-stand-tools-and-setup.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

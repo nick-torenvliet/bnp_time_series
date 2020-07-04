@@ -1,3 +1,0 @@
-
-- Fix anomaly so it is on a limited set of data
-- Fix anomaly prediction so it works with soft linked variable names
