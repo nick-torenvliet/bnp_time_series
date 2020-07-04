@@ -1,4 +1,4 @@
-The following sub-sections briefly describe the toolset required to run the method investigation code and provide instructions for their installation and usage. 
+The following sub-sections briefly describe the toolset required to run the investigation code and provide instructions for their installation and usage. 
 
 ### Tools
 A brief discussion of the relevant tools follow.  The tools are widely, and mostly freely, available. 
@@ -9,13 +9,13 @@ Useful Links:
 * [MIT Probabilistic Computing Project](http://probcomp.csail.mit.edu/)
 * [ProbComp Github Repository](https://github.com/probcomp/)
 
-The MIT Probabilistic Computing Project has made available [__probcomp__](https://github.com/probcomp) which is a set of libraries written to support the application of artificial intelligence.   To investigate anomaly detection we will use some of the functionality provided by __cgpm__, __crosscat__, and __trcrpm__.  
+The MIT Probabilistic Computing Project has made available [__probcomp__](https://github.com/probcomp) which is a set of libraries written to support the application of artificial intelligence.   These investigations use some of the functionality provided by __cgpm__, __crosscat__, and __trcrpm__.  
 
 __cgpm__ is a repository of code to support the implementation of Composable Generative Population Models(CGPM).  CGPM provide a layer of abstraction that supports model composition and provides avenues for both sampling of random variable and generation of conditional densities. 
 
 __crosscat__ provides tools for the Bayesian analysis of high dimensional data tables to support efficient sampling and joint distribution estimation via Bayesian network structure learning and nonparametric mixture modeling.  __crosscat__ can be used to identify predictive relationships between variables, and uncover complex clustering.  
 
-__trcrpm__ is an implementation of Temporally Reweighted Chinese Restaurant Process Mixture Models described in [@saad2018trcrpm].  __trcrpm__ makes calls to __cgpm__ and __crosscat__ to provide a modified version of the Chinese Restaurant Process that introduces a time dependency between successive data-points of the model.   
+__trcrpm__ is an implementation of Temporally Reweighted Chinese Restaurant Process Mixture Models described in [@saad2018trcrpm].  __trcrpm__ makes calls to __cgpm__ and __crosscat__ to provide a nested version of the Chinese Restaurant Process that introduces a time dependency between successive data-points of the model.   
 
 __cgpm__, __crosscat__, and __trcrpm__ make extensive use of __cython__ and the associated  __gnu c/c++__ backend. 
 
@@ -116,7 +116,7 @@ Copy the URL and paste it into a browser address bar.  Before following the URL,
 ```
 http://127.0.0.1:8888/?token=31fa0215191e6636abf09477761404d35484a4614aab4399
 ```
-You now should have __jupyter notebook__ running in your browser, served from the __docker container__ just created. 
+You now should have __jupyter notebook__ running in your browser, served from the __docker container__ just created.  The investigation notebooks should be visible on a directory tree view in your browser.  
 
 ### Post Installation Docker/Jupyter Startup
 

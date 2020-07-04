@@ -22,33 +22,30 @@ user_link <- function(name, username) {
 # BNP for Scalable Signal Monitoring 
 
 ## Problem Statement
-The Internet of Things(IOT) is made possible by the convergence of cheap data storage, ubiquitous networks, and fully connected sensing devices; all commodity items.  IOT brings with it the possibility to control and monitor processes at scale.  However though statistical learning methods have enjoyed great success in a number of use cases a major barrier to their widespread adoption across the IOT lies in the effort required to achieve useful implementations.  
+The Internet of Things(IOT) is made possible by the convergence of cheap data storage, ubiquitous networks, and fully connected sensing devices; all commodity items.  IOT brings with it the possibility to control and monitor processes at scale.  The immediate intuition is to apply statistical learning to leverage and harness the information in this vast trove of data.  But though statistical learning methods have enjoyed great success in a number of use cases a major barrier to their widespread adoption across the IOT lies in the effort required to achieve useful implementations.  
 
-Consider digital signal anomaly detection.  Automatic identification and warning of abnormal signal indications is a desirable feature for maintainers of large systems.  Typically systems have tens or hundreds of thousands of measured signals; a number that is projected to increase dramatically.  Deploying anomaly detection at scale across such a system may not be economically efficient. Each signal, or group of signals, may have its own unique set of characteristic behaviors and failure modes.  Training a supervised model, or determining and writing the heuristic rules for each is onerous, costly, and inefficient.  Maintaining a collection of model and rules could also be prohibitive in terms of the number of skilled staff such an effort would require.
+Consider digital signal anomaly detection.  Automatic identification and warning of abnormal signal indications is a desirable feature for maintainers of large systems.  Typically systems have tens or hundreds of thousands of measured signals; a number that is projected to increase dramatically.  Deploying anomaly detection at scale across such systems may not be economically efficient. Each signal, or group of signals, may have its own unique set of characteristic behaviors and failure modes.  Training a supervised model, or determining and writing the heuristic rules for each is onerous and costly.  Maintaining a collection of model and rules would also be prohibitive in terms of the number of skilled staff such an effort would require.
 
 Thus scalable signal anomaly detection requires general, unsupervised methods with efficient compute.  It is only when a solution requires very little treatment on a per signal basis and consumes a modest set of computational resources that the solution will be of benefit to industry.  
 
 ## Addressing Scalability
-The Temporally Re-weighted Chinese Restaurant Process (TRCRP) [@saad2018trcrpm] is one BNP based method that could effectively address many of the issues related to scalability.  The originators of the method indicate impressive results with respect to its ability to impute and predict time series data.  The results are achieved without significant modeling, or consideration of parameters, on a per time series basis.  
+The Temporally Re-weighted Chinese Restaurant Process (TRCRP) [@saad2018trcrpm] is one BNP based method that could effectively address many of the issues related to scalability.  The originators of the method indicate impressive results with respect to its ability to impute and predict time series data.  As the authors report the chief benefits of the method are its relative accuracy, and that such accuracy is  achieved without significant modeling, or consideration of parameters, on a per time series basis.  
 
-To test these results, this preliminary investigation made use of the examples provided by the original authors and applied the method to a set of time series from industrial processes. The results provide an intuition for the inner machinations of BNP processes and indicate that there may be merit to the original claims.  Additionally the results have uncovered added utility of the method in the context of identifying anomalous signal behavior. 
+To test these claims, this preliminary investigation made use of the examples provided by the original authors and applied the method to a set of time series from industrial processes. The results provide an intuition for the inner machinations of BNP processes and indicate that there may be reason for optimism.  Additionally the results have uncovered added utility of the method in the context of identifying anomalous signal behavior. 
 
-The following sections provide a walk through the investigation.  First instructions are provided for a TRCRP test stand setup.  And then a number of investigations of the method are given, each of which provides some intuition and allows for some general conclusions about the utility of the method.
+The following sections provide a walk through the investigation.  First instructions are provided for a TRCRP test stand setup.  And then a number of investigations of the method are made.  Each of investigation provides some intuition and allows for some general conclusions about the utility of the method.
 
-## The Temporally Reweighted Chinese Restaurant Process
-TRCRP is a generative temporal extension of the Dirichlet process.  Samples from its posterior are distributed according to a $Normal$ distribution, with and $Normal-InverseGamma$ prior.  In a multivariate setting it is capable of clustering data according to the states which they aquire via the embedded Chinese Restaurant Process(CRP).  It uses a Markov Chain Monte Carlo processes for sampling, and resampling.  
+## The TRCRP Intuition
+TRCRP is a generative temporal extension of the Dirichlet process.  Samples from its posterior are distributed according to a Normal distribution, with and Normal-InverseGamma prior.  In a multivariate setting it is capable of clustering data according to the states which they aquire via the embedded Chinese Restaurant Process(CRP).  It uses a Markov Chain Monte Carlo processes for sampling, and hyper parameter resampling.  
 
-[More to math and description/explanation to come in the paper...]
+BNP based methods such as TRCRP are often used to model data where the dimension of interest may increase with the size of the data set. The Dirichlet Process Mixture Models(DPMM) underlying many BNP models allow for an infinite number of possible categories, or mixture modes.  As such it is a possible candidate for the modeling of signals from devices with an unknown, possibly infinite, number of failure modes.  Further to this the state attribution, or mode association, these methods utilize is sensitive to the number of datapoints already existing in a given state or mode; unknown or unfamiliar incoming data will tend to not be grouped with familiar data.  Again this makes such methods possible candidates for identifying anomalous data points with features that stand out from their peers. 
 
-## Test Stand Tools and Setup
+# Test Stand Tools and Setup
 ```{r child="bnp/tools.Rmd", echo=T}
 ```
 
-## Jupyter Application Files
+# Investigation Results
 ```{r child="bnp/applications.Rmd", echo=T}
 ```
 
-## Towards a STAT946 Final Project
-```{r child="bnp/future.Rmd", echo=T}
-```
 
