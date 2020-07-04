@@ -1,25 +1,38 @@
 ### Jupyer Notebook Method Investigations Description of Results
 If the steps in the [installation instructions](#installation) were successfully followed to completion then the investigation code will be available through the links in the __jupyter__ directory tree view.  The __jupyter__ files themselves contain detailed commentary on the usage and coding details, and provide suggestion to use the stub code as a templates to investigate other time series datasets and application.  
 
-The following describes the results and general conclusions of the investigation. 
+The following describes the results and general conclusions of the investigation.  Refer to the __jupyter notebook__ files in the __bnp_time_series__ repository to walk through the investigations cell by cell. 
 
-#### Jupyter File investigation_01_univariate_data.ipynb
+#### Jupyter File investigation_01_univariate_state_assignment.ipynb
 ```{r i1ppf, echo=FALSE, fig.cap="Posterior predictive draws for investigation 1"}
 knitr::include_graphics(here::here("images", "i1_posterior_predictive_draws.png"))
 ```
-The first investigation is performed simply to probe the details of __trcrpm__ use.  An industrial data set with a known anomaly was incorported into a a __trcrpm__ and using MCMC inference several inference, and as per the details in the code, several hyper-parameter resampling steps were performed. 
+The first investigation is performed simply to probe the details of __trcrpm__ use.  An industrial data set with a known anomaly was incorporated into a a __trcrpm__ model.  The posterior was developped using MCMC and Gibbs sampling, and similarly afterwards hyper-parameters were resampled.   
 
-Figure \@ref(fig:i1ppf) shows the results of sampling from the predictive posterior.  We see that without any special treatment in terms of determing hyper-parameters, or pre-processing the data, results provide reasonable percentile confidence bands about the time series data. 
+Figure \@ref(fig:i1ppf) shows the results of sampling from the predictive posterior.  Without any special treatment in terms of determining hyper-parameters, or pre-processing the data, the prediction provide reasonable percentile bands about the time series data. 
 
-```{r i1s, echo=FALSE, fig.cap="Model state attribution"}
-knitr::include_graphics(here::here("images", "i1_model_states.png"))
+```{r i1s, echo=FALSE, fig.cap="Model state attribution - with unique states coded to unique color"}
+knitr::include_graphics(here::here("images", "i1statesnew.png"))
 ```
+Figure \@ref(fig:i1s) shows graphically the states attributed to data-points in the time series.  Again without any special treatment or consideration of the method in relation to this specific data, __trcrpm__ has idenitified strong non-stationary behaviour in the data at the anomaly between samples $1500$ and $2000$.
 
 #### Jupyter File investigation_02_multivariate_prediction.ipynb
-The data used in this example are taken from four temperature sensors situation on the fore and aft end shields of a CANDU reactor. The data is again indexed on the integers and was read from the field every two seconds.  The application demonstrates the predictive capabilities of the __trcrpm__ in a multivariate setting.
+The data used in this investigation are taken from four temperature sensors situated fore and aft of a large tank of water. The data is again indexed on the integers and was read from the field every two seconds.  The investigation probes the predictive capabilities of the __trcrpm__ in a multivariate setting.
+
+```{r i2fd, echo=FALSE, fig.cap="Posterior predictive draws for investigation 2"}
+knitr::include_graphics(here::here("images", "i2_forecast_data.png"))
+```
+Figure \@ref(fig:i2fd) demonstrates the utility of the model in terms of its ability to generate reasonable predictions.  The grey regions demark the 5-95% band for the predictions.  
 
 #### Jupyter File investigation_03_multivariate_state_assignment.ipynb
-The data used in this example are the same as is __data_prediction_one.ipynb__.  In this application the data is divided into four separate series, with the anomolous behaviour embedded in the third __d3__.  The graphics demonstrate that in the multivariate setting state attribution is heavily influenced by the the goings on in neighbouring series.   
+The data used in this example are the same as is in the first investigation.  In this application the data is divided into four separate series, with the anomolous behaviour embedded in the third __d3__.  In the multivariate case __trcrp__ by default uses a mixture to model the series as an ensemble.  This investigation shows that there may be some drawbacks to this approach.  In particular \@ref(fig:i3msa) shows that the model 
+```{r i3msa, echo=FALSE, fig.cap="Multivariate state assignment for investigation 3"}
+knitr::include_graphics(here::here("images", "i3msa.png"))
+```
+
+
+
+The graphics demonstrate that in the multivariate setting state attribution is heavily influenced by the the goings on in neighbouring series.   
 
 #### Jupyter File investigation_04_univariate_streaming_state_assignment.ipynb
 __anomaly_detection.ipynb__ investigates using the number of states in the inferred model to make conclusions about the incoming data.  
