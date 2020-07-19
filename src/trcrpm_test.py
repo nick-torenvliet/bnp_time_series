@@ -5,15 +5,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 from trcrpm import TRCRP_Mixture
 from collections import Counter
-print "fuck yeah"
-data = pd.read_csv("./data/anomaly0245.csv", index_col=0)
+
+data = pd.read_csv("/bnp_time_series/data/anomaly0245.csv", index_col=0)
 data = data.iloc[156600:240000].reset_index(drop=True)
 
 # Setup the placekeeping and initilizing variables
 chain = 0
 x, eng_val, states, num_states = [], [], [], []
 i = 0
-step = 30
+step = 20
 print(i)
 
 rng = np.random.RandomState(1)
